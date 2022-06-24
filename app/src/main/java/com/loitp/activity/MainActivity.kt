@@ -55,13 +55,6 @@ class MainActivity : BaseFontActivity() {
 
             override fun onProgressChanged(progress: Int) {
                 logD("onProgressChanged $progress")
-                pb.progress = progress
-                if (progress == 100) {
-                    pb.visibility = View.GONE
-                    logD(">>>onProgressChanged finish ${lWebView.url}")
-                } else {
-                    pb.visibility = View.VISIBLE
-                }
             }
 
             override fun shouldOverrideUrlLoading(url: String) {
