@@ -10,6 +10,7 @@ import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
 import com.loitp.R
+import com.loitp.model.Data
 import com.loitp.viewmodels.MainViewModel
 import com.views.LWebViewAdblock
 import kotlinx.android.synthetic.main.activity_main.*
@@ -77,6 +78,10 @@ class MainActivity : BaseFontActivity() {
                     logD("dataActionLiveData action.isDoing ${action.isDoing}")
                     action.isDoing?.let { isDoing ->
                         logD("isDoing $isDoing")
+                        val data = action.data
+                        if (!isDoing && data != null) {
+                            print(data)
+                        }
                     }
                 }
             )
@@ -99,5 +104,9 @@ class MainActivity : BaseFontActivity() {
                 mainViewModel?.getBookingDetail(id)
             }
         }, "handlePrintOrder")
+    }
+
+    private fun print(data: Data) {
+        //TODO
     }
 }
