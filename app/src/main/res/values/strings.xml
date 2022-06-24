@@ -10,5 +10,5 @@
     <string name="home">Home</string>
     <string name="chat_with_dev">Chat with dev</string>
     <string name="donation">Donation</string>
-
+    <string name="copyright">© Digital Kauri.</string>
 </resources>
