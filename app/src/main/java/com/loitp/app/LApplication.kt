@@ -14,9 +14,9 @@ class LApplication : BaseApplication() {
     override fun onCreate() {
         super.onCreate()
 
+        LUIUtil.setDarkTheme(isDarkTheme = true)
         // config activity transition default
         ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT
-
         // config font
         LUIUtil.fontForAll = Constants.FONT_PATH
     }

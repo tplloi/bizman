@@ -40,9 +40,6 @@ class SplashActivity : BaseFontActivity() {
             }
         )
         textViewVersion.text = "Version ${BuildConfig.VERSION_NAME}"
-        tvPolicy.setOnClickListener {
-            LSocialUtil.openBrowserPolicy(context = this)
-        }
     }
 
     override fun onResume() {
