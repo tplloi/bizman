@@ -1,29 +1,14 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Bizman</string>
-    <string name="app_name_vn">Bizman</string>
     <string name="deny">Deny</string>
-    <string name="yes">Yes</string>
-    <string name="setting">Setting</string>
-    <string name="need_permisson">Need permission</string>
-    <string name="need_permisson_to_use_app">Need permission to use app</string>
-    <string name="app_is_not_ready">The app is temporarily unavailable, please try again later.</string>
     <string name="check_ur_connection">Please check your connection</string>
     <string name="warning">Warning</string>
     <string name="press_again_to_exit">Press again to exit</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="rate_app">Rate</string>
     <string name="more_app">More</string>
-    <string name="facebook_fanpage">Facebook fanpage</string>
     <string name="share_app">Share</string>
-    <string name="gallery">Gallery</string>
-    <string name="gallery_18">Gallery 18</string>
     <string name="home">Home</string>
-    <string name="exit">Exit</string>
-    <string name="try_again">Try again</string>
-    <string name="right_drawer">Right Drawer</string>
     <string name="chat_with_dev">Chat with dev</string>
     <string name="donation">Donation</string>
-    <string name="check_out">Check out</string>
 
 </resources>
