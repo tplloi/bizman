@@ -1,23 +1,39 @@
 package com.loitp.viewmodels
 
-import androidx.lifecycle.MutableLiveData
+import com.annotation.LogTag
+import com.core.base.BaseApplication
 import com.core.base.BaseViewModel
-import com.core.utilities.LStoreUtil
+import com.loitp.service.repository.MainRepository
+import com.loitp.service.service.TestApiClient
+import com.service.livedata.ActionData
+import com.service.livedata.ActionLiveData
+import com.service.model.UserTest
 import kotlinx.coroutines.launch
 
+@LogTag("MainViewModel")
 class MainViewModel : BaseViewModel() {
+    private val repository: MainRepository = MainRepository(TestApiClient.apiService)
+    val userActionLiveData: ActionLiveData<ActionData<ArrayList<UserTest>>> = ActionLiveData()
 
-    val listChapLiveData: MutableLiveData<List<String>> = MutableLiveData()
+    fun getUserTestListByPage(page: Int, isRefresh: Boolean) {
+        logD(">>>getUserTestListByPage")
+        userActionLiveData.set(ActionData(isDoing = true))
 
-    fun loadListChap() {
         ioScope.launch {
-            showLoading(true)
-
-            val string = LStoreUtil.readTxtFromAsset(assetFile = "db.sqlite")
-            val listChap = string.split("#")
-            listChapLiveData.postValue(listChap)
-
-            showLoading(false)
+            val response = repository.getUserTest(page = page)
+            logD(">>>response " + BaseApplication.gson.toJson(response.data))
+            if (response.data != null) {
+                userActionLiveData.post(
+                    ActionData(
+                        isDoing = false,
+                        isSuccess = true,
+                        isSwipeToRefresh = isRefresh,
+                        data = response.data
+                    )
+                )
+            } else {
+                userActionLiveData.postAction(getErrorRequest(response))
+            }
         }
     }
 }
