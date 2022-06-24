@@ -10,7 +10,7 @@ import com.service.livedata.ActionData
 import com.service.livedata.ActionLiveData
 import kotlinx.coroutines.launch
 
-@LogTag("loitppMainViewModel")
+@LogTag("MainViewModel")
 class MainViewModel : BaseViewModel() {
     private val repository: MainRepository = MainRepository(ApiClient.apiService)
     val dataActionLiveData: ActionLiveData<ActionData<Data>> = ActionLiveData()
