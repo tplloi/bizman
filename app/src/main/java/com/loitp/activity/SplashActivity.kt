@@ -21,6 +21,7 @@ import kotlinx.android.synthetic.main.activity_splash.*
 @IsFullScreen(false)
 class SplashActivity : BaseFontActivity() {
     private var isAnimDone = false
+    private var isCheckReadyDone = false
     private var isShowDialogCheck = false
 
     override fun setLayoutResourceId(): Int {
@@ -86,6 +87,7 @@ class SplashActivity : BaseFontActivity() {
                 }
                 .request { allGranted, _, _ ->
                     if (allGranted) {
+                        isCheckReadyDone = true
                         goToHome()
                     } else {
                         finish()
@@ -121,7 +123,7 @@ class SplashActivity : BaseFontActivity() {
     }
 
     private fun goToHome() {
-        if (isAnimDone) {
+        if (isAnimDone && isCheckReadyDone) {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             LActivityUtil.tranIn(this)
