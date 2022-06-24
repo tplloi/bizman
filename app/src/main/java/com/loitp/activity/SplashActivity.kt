@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_splash.*
 
 @SuppressLint("CustomSplashScreen")
 @LogTag("SplashActivity")
-@IsFullScreen(false)
+@IsFullScreen(true)
 class SplashActivity : BaseFontActivity() {
     private var isAnimDone = false
     private var isCheckReadyDone = false
