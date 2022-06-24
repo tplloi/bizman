@@ -324,7 +324,16 @@ class MainActivity : BaseFontActivity() {
 
     private fun print(data: Data) {
         if (getPrinterStatus() == PRINTER_NORMAL) {
-            printBaiduBill()
+            ThreadPoolManager.getInstance().executeTask {
+                try {
+                    mIPosPrinterService?.apply {
+                        printSpecifiedTypeText(data.getPrintContent(), "ST", 32, callback)
+                        printerPerformPrint(160, callback)
+                    }
+                } catch (e: RemoteException) {
+                    e.printStackTrace()
+                }
+            }
         }
     }
 

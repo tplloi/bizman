@@ -1,6 +1,7 @@
 package com.loitp.model
 
 import androidx.annotation.Keep
+import com.loitp.print.PrintContentsExamples.Baidu
 
 @Keep
 data class Data(
@@ -24,4 +25,8 @@ data class Data(
     val total: Int,
     val transactionId: String,
     val updatedAt: String
-)
+) {
+    fun getPrintContent(): String {
+        return Baidu
+    }
+}
