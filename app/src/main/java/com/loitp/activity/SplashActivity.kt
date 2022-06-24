@@ -9,22 +9,18 @@ import android.os.Bundle
 import android.provider.Settings
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
-import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
-import com.core.utilities.* // ktlint-disable no-wildcard-imports
+import com.core.utilities.*
 import com.loitp.BuildConfig
 import com.loitp.R
-import com.model.GG
 import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.activity_splash.*
-import okhttp3.Call
 
 @SuppressLint("CustomSplashScreen")
 @LogTag("SplashActivity")
 @IsFullScreen(false)
 class SplashActivity : BaseFontActivity() {
     private var isAnimDone = false
-    private var isCheckReadyDone = false
     private var isShowDialogCheck = false
 
     override fun setLayoutResourceId(): Int {
@@ -90,13 +86,7 @@ class SplashActivity : BaseFontActivity() {
                 }
                 .request { allGranted, _, _ ->
                     if (allGranted) {
-                        val isNeedCheckReady = false
-                        if (isNeedCheckReady) {
-                            checkReady()
-                        } else {
-                            isCheckReadyDone = true
-                            goToHome()
-                        }
+                        goToHome()
                     } else {
                         finish()
                         LActivityUtil.tranOut(this)
@@ -131,80 +121,11 @@ class SplashActivity : BaseFontActivity() {
     }
 
     private fun goToHome() {
-        if (isAnimDone && isCheckReadyDone) {
+        if (isAnimDone) {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             LActivityUtil.tranIn(this)
             this.finishAfterTransition()
         }
-    }
-
-    private fun showDialogNotReady() {
-        runOnUiThread {
-            val title = if (LConnectivityUtil.isConnected()) {
-                getString(R.string.app_is_not_ready)
-            } else {
-                getString(R.string.check_ur_connection)
-            }
-            val alertDial = LDialogUtil.showDialog2(
-                context = this,
-                title = getString(R.string.warning),
-                msg = title,
-                button1 = getString(R.string.exit),
-                button2 = getString(R.string.try_again),
-                onClickButton1 = {
-                    onBackPressed()
-                },
-                onClickButton2 = {
-                    checkReady()
-                }
-            )
-            alertDial.setCancelable(false)
-        }
-    }
-
-    private fun checkReady() {
-
-        fun setReady() {
-            runOnUiThread {
-                isCheckReadyDone = true
-                goToHome()
-            }
-        }
-
-        if (LPrefUtil.getCheckAppReady()) {
-            setReady()
-            return
-        }
-        val linkGGDriveCheckReady = getString(R.string.link_gg_drive)
-        LStoreUtil.getTextFromGGDrive(
-            linkGGDrive = linkGGDriveCheckReady,
-            onGGFailure = { _: Call, e: Exception ->
-                e.printStackTrace()
-                showDialogNotReady()
-            },
-            onGGResponse = { listGG: ArrayList<GG> ->
-                logD("getGG listGG: -> " + BaseApplication.gson.toJson(listGG))
-
-                fun isReady(): Boolean {
-                    listGG.forEach { gg ->
-                        if (packageName == gg.pkg) {
-                            return gg.isReady
-                        }
-                    }
-                    return false
-                }
-
-//              val isReady = isReady()
-                // TODO loitpp
-                val isReady = true // return true for demo
-                if (isReady) {
-                    LPrefUtil.setCheckAppReady(value = true)
-                    setReady()
-                } else {
-                    showDialogNotReady()
-                }
-            }
-        )
     }
 }

@@ -8,18 +8,11 @@ import com.data.ActivityData
 import com.data.AdmobData
 import com.loitp.R
 
-// done
-// link link_cover string
-// change admob
-
 @LogTag("LApplication")
 class LApplication : BaseApplication() {
 
     override fun onCreate() {
         super.onCreate()
-
-        // config admob id
-        AdmobData.instance.idAdmobFull = getString(R.string.str_f)
 
         // config activity transition default
         ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT

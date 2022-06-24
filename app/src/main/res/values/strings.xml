@@ -1,17 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">Demo Base Master</string>
-    <string name="app_name_vn">Demo Base Master</string>
-
-<!--    https://drive.google.com/file/d/1femuL17MUTz7t0yqUkMWB5yCea1W6kqI/view?usp=sharing-->
-    <string name="link_gg_drive" tools:ignore="Typos"><![CDATA[https://drive.google.com/uc?export=download&id=1femuL17MUTz7t0yqUkMWB5yCea1W6kqI]]></string><!--no need to edit this-->
-    <string name="link_cover"><![CDATA[https://live.staticflickr.com/4380/35997985613_8fd2eab2d9_c.jpg]]></string>
-
-    <!--https://apps.admob.com/v2/apps/3990788735/adunits/list-->
-    <string name="str_b">ca-app-pub-3165963943681013/2677707063</string>
-    <string name="str_f">ca-app-pub-3165963943681013/4726636975</string>
-    <string name="str_reward">ca-app-pub-3165963943681013/7959304975</string>
-    <string name="str_app_id">ca-app-pub-3165963943681013~3990788735</string>
-
+    <string name="app_name">Bizman</string>
+    <string name="app_name_vn">Bizman</string>
     <string name="deny">Deny</string>
     <string name="yes">Yes</string>
     <string name="setting">Setting</string>

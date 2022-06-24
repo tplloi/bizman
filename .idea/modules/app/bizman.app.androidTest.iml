@@ -15,7 +15,6 @@
               <args>
                 <arg>$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b122b42655482140e024c55fd3683a27/jetified-androidx-rs.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c27704a24c1aa2eb4137c0b6e5915d4b/jetified-basemaster-4.4.70-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-2/files-2.1/24c977abd92fb00a2fb07e2e0ee681fe/jetified-drawer-behavior-1.0.1-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b3ad0a4765b36416071d4e2033b346a3/databinding-adapters-4.2.2-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-2/files-2.1/265474c16239eac7f34a5c3e24b4649c/databinding-runtime-4.2.2-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.databinding/databinding-common/4.2.2/9cc81874c48238769c25dc40d122d4ed37d570e2/databinding-common-4.2.2.jar</arg>
@@ -293,7 +292,6 @@
     <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains:annotations:16.0.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.google.guava:listenablefuture:1.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.github.tplloi:basemaster:4.4.70@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: com.infideap.drawerbehavior:drawer-behavior:1.0.1@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.databinding:databinding-adapters:4.2.2@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.databinding:databinding-runtime:4.2.2@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.room:room-ktx:2.4.1@aar" level="project" />
