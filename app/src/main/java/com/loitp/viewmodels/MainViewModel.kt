@@ -3,36 +3,35 @@ package com.loitp.viewmodels
 import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseViewModel
+import com.loitp.model.Data
 import com.loitp.service.repository.MainRepository
-import com.loitp.service.service.TestApiClient
+import com.loitp.service.service.ApiClient
 import com.service.livedata.ActionData
 import com.service.livedata.ActionLiveData
-import com.service.model.UserTest
 import kotlinx.coroutines.launch
 
-@LogTag("MainViewModel")
+@LogTag("loitppMainViewModel")
 class MainViewModel : BaseViewModel() {
-    private val repository: MainRepository = MainRepository(TestApiClient.apiService)
-    val userActionLiveData: ActionLiveData<ActionData<ArrayList<UserTest>>> = ActionLiveData()
+    private val repository: MainRepository = MainRepository(ApiClient.apiService)
+    val dataActionLiveData: ActionLiveData<ActionData<Data>> = ActionLiveData()
 
-    fun getUserTestListByPage(page: Int, isRefresh: Boolean) {
-        logD(">>>getUserTestListByPage")
-        userActionLiveData.set(ActionData(isDoing = true))
+    fun getBookingDetail(orderId: String) {
+        logD(">>>getBookingDetail orderId $orderId")
+        dataActionLiveData.postAction(ActionData(isDoing = true))
 
         ioScope.launch {
-            val response = repository.getUserTest(page = page)
+            val response = repository.getBookingDetail(orderId)
             logD(">>>response " + BaseApplication.gson.toJson(response.data))
             if (response.data != null) {
-                userActionLiveData.post(
+                dataActionLiveData.post(
                     ActionData(
                         isDoing = false,
                         isSuccess = true,
-                        isSwipeToRefresh = isRefresh,
                         data = response.data
                     )
                 )
             } else {
-                userActionLiveData.postAction(getErrorRequest(response))
+                dataActionLiveData.postAction(getErrorRequest(response))
             }
         }
     }

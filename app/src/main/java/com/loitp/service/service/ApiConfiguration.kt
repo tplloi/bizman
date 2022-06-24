@@ -2,7 +2,7 @@ package com.loitp.service.service
 
 object ApiConfiguration {
     // authentication
-    const val BASE_AUTHEN_URL = "https://reqres.in/api/"
+    const val BASE_AUTHEN_URL = "https://tabletopapi.dikauri.com/api/"
 
     // API Param
     const val AUTHORIZATION_HEADER = "Authorization"

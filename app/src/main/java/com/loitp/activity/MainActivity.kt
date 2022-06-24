@@ -14,7 +14,7 @@ import com.loitp.viewmodels.MainViewModel
 import com.views.LWebViewAdblock
 import kotlinx.android.synthetic.main.activity_main.*
 
-@LogTag("MainActivity")
+@LogTag("loitppMainActivity")
 @IsFullScreen(true)
 class MainActivity : BaseFontActivity() {
 
@@ -28,7 +28,6 @@ class MainActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
         setupViews()
         setupViewModels()
-        mainViewModel?.getUserTestListByPage(page = 1, isRefresh = true)
     }
 
     private var doubleBackToExitPressedOnce = false
@@ -72,29 +71,12 @@ class MainActivity : BaseFontActivity() {
     private fun setupViewModels() {
         mainViewModel = getViewModel(MainViewModel::class.java)
         mainViewModel?.let { vm ->
-            vm.userActionLiveData.observe(
+            vm.dataActionLiveData.observe(
                 owner = this,
                 observer = { action ->
-                    logD("userAction.observe action.isDoing ${action.isDoing}")
+                    logD("dataActionLiveData action.isDoing ${action.isDoing}")
                     action.isDoing?.let { isDoing ->
-
-                    }
-
-                    action.data?.let { userTestList ->
-                        val isRefresh = action.isSwipeToRefresh
-
-                    }
-
-                    action.errorResponse?.let { error ->
-                        logE("observe error " + BaseApplication.gson.toJson(error))
-                        error.message?.let {
-                            showDialogError(
-                                errMsg = it,
-                                runnable = {
-                                    // do nothing
-                                }
-                            )
-                        }
+                        logD("isDoing $isDoing")
                     }
                 }
             )
@@ -114,8 +96,7 @@ class MainActivity : BaseFontActivity() {
             @JavascriptInterface
             @Throws(java.lang.Exception::class)
             fun performClick(id: String) {
-                logE("isDetectButtonClickWeb order id: $id")
-                showLongInformation("isDetectButtonClickWeb order id: $id");
+                mainViewModel?.getBookingDetail(id)
             }
         }, "handlePrintOrder")
     }

@@ -5,12 +5,13 @@ import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterF
 import com.restapi.DateTypeDeserializer
 import com.restapi.restclient.RestRequestInterceptor
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.* // ktlint-disable no-wildcard-imports
 import java.util.concurrent.TimeUnit
 
-object TestApiClient {
+object ApiClient {
 
     private fun getBaseUrl() = ApiConfiguration.BASE_AUTHEN_URL
     private var restRequestInterceptor: RestRequestInterceptor? = null
@@ -24,11 +25,19 @@ object TestApiClient {
 
         restRequestInterceptor = RestRequestInterceptor()
 
+        val interceptor = run {
+            val httpLoggingInterceptor = HttpLoggingInterceptor()
+            httpLoggingInterceptor.apply {
+                httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+            }
+        }
+
         builder.apply {
             connectTimeout(ApiConfiguration.TIME_OUT, TimeUnit.SECONDS)
             readTimeout(ApiConfiguration.TIME_OUT, TimeUnit.SECONDS)
             writeTimeout(ApiConfiguration.TIME_OUT, TimeUnit.SECONDS)
             // addInterceptor(AuthenticationInterceptor())
+            addNetworkInterceptor(interceptor)
             restRequestInterceptor?.let { rri ->
                 addInterceptor(rri)
             }
