@@ -83,7 +83,7 @@ data class Data(
         val keyLength = key.length
         val valueLength = value.length
         val spaceLength = maxLengthPerLine - keyLength - valueLength
-        Log.e("_PRINTER", "$spaceLength = $maxLengthPerLine $keyLength $valueLength $key $value")
+//        Log.e("_PRINTER", "$spaceLength = $maxLengthPerLine $keyLength $valueLength $key $value")
         val formatValue: String
         if (spaceLength >= 0) {
             var spaceString = ""
