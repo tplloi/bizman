@@ -323,6 +323,7 @@ class MainActivity : BaseFontActivity() {
     }
 
     private fun print(data: Data) {
+//        data.getPrintContent()
         if (getPrinterStatus() == PRINTER_NORMAL) {
             ThreadPoolManager.getInstance().executeTask {
                 try {

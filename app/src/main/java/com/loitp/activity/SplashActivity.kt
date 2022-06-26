@@ -10,7 +10,10 @@ import android.provider.Settings
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
-import com.core.utilities.*
+import com.core.utilities.LActivityUtil
+import com.core.utilities.LDialogUtil
+import com.core.utilities.LScreenUtil
+import com.core.utilities.LUIUtil
 import com.loitp.BuildConfig
 import com.loitp.R
 import com.permissionx.guolindev.PermissionX
@@ -94,29 +97,31 @@ class SplashActivity : BaseFontActivity() {
                 }
         }
 
-        val isCanWriteSystem = LScreenUtil.checkSystemWritePermission()
-        if (isCanWriteSystem) {
-            checkPer()
-        } else {
-            val alertDialog = LDialogUtil.showDialog2(
-                context = this,
-                title = "Need Permissions",
-                msg = "This app needs permission to allow modifying system settings",
-                button1 = getString(R.string.ok),
-                button2 = getString(R.string.cancel),
-                onClickButton1 = {
-                    val intent = Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS)
-                    intent.data = Uri.parse("package:$packageName")
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    startActivity(intent)
-                    LActivityUtil.tranIn(this@SplashActivity)
-                },
-                onClickButton2 = {
-                    onBackPressed()
-                }
-            )
-            alertDialog.setCancelable(false)
-        }
+//        val isCanWriteSystem = LScreenUtil.checkSystemWritePermission()
+//        if (isCanWriteSystem) {
+//            checkPer()
+//        } else {
+//            val alertDialog = LDialogUtil.showDialog2(
+//                context = this,
+//                title = "Need Permissions",
+//                msg = "This app needs permission to allow modifying system settings",
+//                button1 = getString(R.string.ok),
+//                button2 = getString(R.string.cancel),
+//                onClickButton1 = {
+//                    val intent = Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS)
+//                    intent.data = Uri.parse("package:$packageName")
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+//                    startActivity(intent)
+//                    LActivityUtil.tranIn(this@SplashActivity)
+//                },
+//                onClickButton2 = {
+//                    onBackPressed()
+//                }
+//            )
+//            alertDialog.setCancelable(false)
+//        }
+
+        checkPer()
     }
 
     private fun goToHome() {
