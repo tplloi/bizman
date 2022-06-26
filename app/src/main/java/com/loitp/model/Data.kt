@@ -40,60 +40,65 @@ data class Data(
         )
     }
 
+    companion object {
+        private const val maxLengthPerLine = 24
+        private const val spaceChar = " "
+    }
+
+    private fun getItem(): String {
+        var s = formatLine("SKU", "PRICE")
+        items.forEach { item ->
+            s += "\n"
+            s += formatCenter("------------------------")
+            s += "\n"
+            s += formatLine("x${item.quantity} ${item.menuItem.title}", "$${item.subTotal}")
+        }
+//        if (items.isEmpty()) {
+//            //do nothing
+//        } else {
+//            s += "\n"
+//            s += formatCenter("------------------------")
+//        }
+        return s
+    }
+
+    private fun formatCenter(value: String): String {
+        val valueLength = value.length
+        val space = maxLengthPerLine - valueLength
+        val spaceHalf = space / 2
+        val formatValue: String
+        if (spaceHalf > 0) {
+            var spaceString = ""
+            for (i in 0..spaceHalf) {
+                spaceString += spaceChar
+            }
+            formatValue = spaceString + value + spaceString
+        } else {
+            formatValue = value
+        }
+        return formatValue
+    }
+
+    private fun formatLine(key: String, value: String): String {
+        val keyLength = key.length
+        val valueLength = value.length
+        val spaceLength = maxLengthPerLine - keyLength - valueLength
+        Log.e("_PRINTER", "$spaceLength = $maxLengthPerLine $keyLength $valueLength $key $value")
+        val formatValue: String
+        if (spaceLength >= 0) {
+            var spaceString = ""
+            for (i in 0 until spaceLength) {
+                spaceString += spaceChar
+            }
+            formatValue = key + spaceString + value
+        } else {
+            formatValue = key + "\n" + value
+        }
+        return formatValue
+    }
+
     //24 ki tu 1 hang ngang
     fun getPrintContent(): String {
-
-        val maxLengthPerLine = 24
-        val spaceChar = "_"
-
-        fun getItem(): String {
-            var s = "SKU-------QTY------PRICE"
-            items.forEach { item ->
-                s += "\n------------------------"
-                s += "\n${item.menuItem.title} ${item.quantity} ${item.subTotal}"
-            }
-            if (items.isEmpty()) {
-                //do nothing
-            } else {
-                s += "\n------------------------"
-            }
-            return s
-        }
-
-        fun formatCenter(value: String): String {
-            val valueLength = value.length
-            val space = maxLengthPerLine - valueLength - 1
-            val spaceHalf = space / 2
-            val formatValue: String
-            if (spaceHalf > 0) {
-                var spaceString = ""
-                for (i in 0..spaceHalf) {
-                    spaceString += spaceChar
-                }
-                formatValue = spaceString + value + spaceString
-            } else {
-                formatValue = value
-            }
-            return formatValue
-        }
-
-        fun formatLine(key: String, value: String): String {
-            val keyLength = key.length
-            val valueLength = value.length
-            val spaceLength = maxLengthPerLine - keyLength - valueLength - 1
-            val formatValue: String
-            if (spaceLength > 0) {
-                var spaceString = ""
-                for (i in 0..spaceLength) {
-                    spaceString += spaceChar
-                }
-                formatValue = key + spaceString + value
-            } else {
-                formatValue = key + "\n" + value
-            }
-            return formatValue
-        }
-
         val content = """${formatCenter("Dikauri Bizman")}
 ${formatCenter("************************")}
 ${formatLine("Order Id:", objectId)}
@@ -102,8 +107,10 @@ ${formatLine("Device:", device.name)}
 ${formatLine("Table:", tableName)}
 ${formatLine("Paid by:", paymentProvider)}
 ${formatLine("Transaction Id:", transactionId)}
+${formatCenter("")}
 ${formatCenter("************************")}
 ${getItem()}
+${formatCenter("")}
 ${formatCenter("************************")}
 ${formatLine("Order value:", "$${total}")}
 """
