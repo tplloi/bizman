@@ -7,6 +7,6 @@ data class Item(
     val menuItem: MenuItem,
     val note: String,
     val quantity: Int,
-    val subTotal: Int,
+    val subTotal: Double,
     val userSelection: UserSelection
 )

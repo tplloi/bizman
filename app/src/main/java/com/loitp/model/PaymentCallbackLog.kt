@@ -5,7 +5,7 @@ import androidx.annotation.Keep
 @Keep
 data class PaymentCallbackLog(
     val __type: String,
-    val amount: Int,
+    val amount: Double,
     val className: String,
     val createdAt: String,
     val currency: String,

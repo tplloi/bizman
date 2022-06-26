@@ -23,7 +23,7 @@ data class Data(
     val shop: Shop,
     val status: String,
     val tableName: String,
-    val total: Int,
+    val total: Double,
     val transactionId: String,
     val updatedAt: String
 ) {
@@ -79,9 +79,9 @@ data class Data(
         return formatValue
     }
 
-    private fun formatLine(key: String, value: String): String {
-        val keyLength = key.length
-        val valueLength = value.length
+    private fun formatLine(key: String?, value: String?): String {
+        val keyLength = (key ?: "").length
+        val valueLength = (value ?: "").length
         val spaceLength = maxLengthPerLine - keyLength - valueLength
 //        Log.e("_PRINTER", "$spaceLength = $maxLengthPerLine $keyLength $valueLength $key $value")
         val formatValue: String

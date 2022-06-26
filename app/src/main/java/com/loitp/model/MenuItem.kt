@@ -17,7 +17,7 @@ data class MenuItem(
     val objectId: String,
     val optionSets: List<Any>,
     val owner: Owner,
-    val price: Int,
+    val price: Double,
     val sku: Any,
     val title: String,
     val updatedAt: String

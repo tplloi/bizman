@@ -10,7 +10,7 @@ import com.service.livedata.ActionData
 import com.service.livedata.ActionLiveData
 import kotlinx.coroutines.launch
 
-@LogTag("MainViewModel")
+@LogTag("loitppMainViewModel")
 class MainViewModel : BaseViewModel() {
     private val repository: MainRepository = MainRepository(ApiClient.apiService)
     val dataActionLiveData: ActionLiveData<ActionData<Data>> = ActionLiveData()
@@ -21,7 +21,7 @@ class MainViewModel : BaseViewModel() {
 
         ioScope.launch {
             val response = repository.getBookingDetail(orderId)
-            logD(">>>response " + BaseApplication.gson.toJson(response.data))
+            logD(">>>response " + BaseApplication.gson.toJson(response))
             if (response.data != null) {
                 dataActionLiveData.post(
                     ActionData(

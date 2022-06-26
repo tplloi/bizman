@@ -10,6 +10,7 @@ import android.webkit.JavascriptInterface
 import android.widget.Toast
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
+import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
 import com.iposprinter.iposprinterservice.IPosPrinterCallback
 import com.iposprinter.iposprinterservice.IPosPrinterService
@@ -317,12 +318,14 @@ class MainActivity : BaseFontActivity() {
             @JavascriptInterface
             @Throws(java.lang.Exception::class)
             fun performClick(id: String) {
+                logE("performClick id $id")
                 mainViewModel?.getBookingDetail(id)
             }
         }, "handlePrintOrder")
     }
 
     private fun print(data: Data) {
+        logE("print data " + (BaseApplication.gson to data))
 //        data.getPrintContent()
         if (getPrinterStatus() == PRINTER_NORMAL) {
             ThreadPoolManager.getInstance().executeTask {
