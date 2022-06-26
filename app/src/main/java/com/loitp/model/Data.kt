@@ -112,7 +112,7 @@ ${formatCenter("************************")}
 ${getItem()}
 ${formatCenter("")}
 ${formatCenter("************************")}
-${formatLine("Order value:", "$${total}")}
+${formatLine("ORDER VALUE:", "$${total}")}
 """
         Log.e("_PRINTER", content)
         return content
