@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory
 import android.os.*
 import android.view.KeyEvent
 import android.view.WindowManager
+import android.webkit.CookieManager
 import android.webkit.JavascriptInterface
 import android.widget.Toast
 import com.annotation.IsFullScreen
@@ -262,6 +263,11 @@ class MainActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lWebView.clearCache(true)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
+            CookieManager.getInstance().removeAllCookies(null);
+            CookieManager.getInstance().flush();
+        }
         lWebView.callback = object : LWebViewAdblock.Callback {
             override fun onScroll(l: Int, t: Int, oldl: Int, oldt: Int) {
             }
