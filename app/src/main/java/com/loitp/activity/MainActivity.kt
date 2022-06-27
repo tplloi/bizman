@@ -13,6 +13,7 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
+import com.core.utilities.LSoundUtil
 import com.iposprinter.iposprinterservice.IPosPrinterCallback
 import com.iposprinter.iposprinterservice.IPosPrinterService
 import com.loitp.R
@@ -328,6 +329,15 @@ class MainActivity : BaseFontActivity() {
                 mainViewModel?.getBookingDetail(id)
             }
         }, "handlePrintOrder")
+
+        lWebView.addJavascriptInterface(object : Any() {
+            @JavascriptInterface
+            @Throws(java.lang.Exception::class)
+            fun performClick(nameSound: String) {
+                logE("performClick nameSound $nameSound")
+                LSoundUtil.startMusicFromAsset(fileName = nameSound)
+            }
+        }, "handlerPlaySound")
     }
 
     private fun print(data: Data) {
