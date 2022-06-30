@@ -1,9 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: org.adblockplus:adblock-android:4.4.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a9ed9efa7167db4d46ebfc04ff09abc8/jetified-adblock-android-4.4.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a9ed9efa7167db4d46ebfc04ff09abc8/jetified-adblock-android-4.4.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a9ed9efa7167db4d46ebfc04ff09abc8/jetified-adblock-android-4.4.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/57ebab211a039857ff9ba8aa8688010c/jetified-adblock-android-4.4.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/2559d4994c92dc364a9e6df8556b7be6/transformed/jetified-adblock-android-4.4.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2559d4994c92dc364a9e6df8556b7be6/transformed/jetified-adblock-android-4.4.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2559d4994c92dc364a9e6df8556b7be6/transformed/jetified-adblock-android-4.4.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.adblockplus/adblock-android/4.4.0/f75cb9882e6b9ef3cdde40e5db50e430fd4c6d6/adblock-android-4.4.0-javadoc.jar!/" />

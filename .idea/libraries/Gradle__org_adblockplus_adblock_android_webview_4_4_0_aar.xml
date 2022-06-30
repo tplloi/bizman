@@ -1,9 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: org.adblockplus:adblock-android-webview:4.4.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/01e0e339e5b6cdc39e817731279b3522/jetified-adblock-android-webview-4.4.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/01e0e339e5b6cdc39e817731279b3522/jetified-adblock-android-webview-4.4.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/01e0e339e5b6cdc39e817731279b3522/jetified-adblock-android-webview-4.4.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bc30d323dd51674eee9b905fb5415ae5/jetified-adblock-android-webview-4.4.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/6beb210189e256ef58b1eb71f6d6d27b/transformed/jetified-adblock-android-webview-4.4.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/6beb210189e256ef58b1eb71f6d6d27b/transformed/jetified-adblock-android-webview-4.4.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/6beb210189e256ef58b1eb71f6d6d27b/transformed/jetified-adblock-android-webview-4.4.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.adblockplus/adblock-android-webview/4.4.0/9e28d68e39434c929c476b66005647cc38ce648c/adblock-android-webview-4.4.0-javadoc.jar!/" />

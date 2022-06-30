@@ -36,7 +36,6 @@
         android:src="@drawable/ic_launcher" />
 
     <ProgressBar
-        android:id="@+id/indicatorView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/textViewVersion"
@@ -49,21 +48,11 @@
         android:id="@+id/textViewVersion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/tvPolicy"
+        android:layout_alignParentBottom="true"
         android:gravity="center"
+        android:padding="@dimen/margin_padding_medium"
         android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_medium"
         android:textStyle="bold"
         tools:text="Version 69" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvPolicy"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:gravity="center"
-        android:padding="@dimen/margin_padding_medium"
-        android:text="@string/policy"
-        android:textColor="@drawable/text_white_blue"
-        android:textSize="@dimen/txt_medium" />
 </RelativeLayout>

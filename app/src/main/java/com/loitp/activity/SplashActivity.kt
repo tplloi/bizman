@@ -4,24 +4,20 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
-import android.net.Uri
 import android.os.Bundle
-import android.provider.Settings
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseApplication
-import com.core.base.BaseFontActivity
-import com.core.utilities.* // ktlint-disable no-wildcard-imports
 import com.loitp.BuildConfig
 import com.loitp.R
-import com.model.GG
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LActivityUtil
+import com.loitpcore.core.utilities.LUIUtil
 import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.activity_splash.*
-import okhttp3.Call
 
 @SuppressLint("CustomSplashScreen")
 @LogTag("SplashActivity")
-@IsFullScreen(false)
+@IsFullScreen(true)
 class SplashActivity : BaseFontActivity() {
     private var isAnimDone = false
     private var isCheckReadyDone = false
@@ -43,9 +39,6 @@ class SplashActivity : BaseFontActivity() {
             }
         )
         textViewVersion.text = "Version ${BuildConfig.VERSION_NAME}"
-        tvPolicy.setOnClickListener {
-            LSocialUtil.openBrowserPolicy(context = this)
-        }
     }
 
     override fun onResume() {
@@ -66,7 +59,7 @@ class SplashActivity : BaseFontActivity() {
             }
             PermissionX.init(this)
                 .permissions(
-                    Manifest.permission.ACCESS_FINE_LOCATION,
+//                    Manifest.permission.ACCESS_FINE_LOCATION,
                     Manifest.permission.READ_EXTERNAL_STORAGE,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 )
@@ -90,13 +83,8 @@ class SplashActivity : BaseFontActivity() {
                 }
                 .request { allGranted, _, _ ->
                     if (allGranted) {
-                        val isNeedCheckReady = false
-                        if (isNeedCheckReady) {
-                            checkReady()
-                        } else {
-                            isCheckReadyDone = true
-                            goToHome()
-                        }
+                        isCheckReadyDone = true
+                        goToHome()
                     } else {
                         finish()
                         LActivityUtil.tranOut(this)
@@ -105,29 +93,31 @@ class SplashActivity : BaseFontActivity() {
                 }
         }
 
-        val isCanWriteSystem = LScreenUtil.checkSystemWritePermission()
-        if (isCanWriteSystem) {
-            checkPer()
-        } else {
-            val alertDialog = LDialogUtil.showDialog2(
-                context = this,
-                title = "Need Permissions",
-                msg = "This app needs permission to allow modifying system settings",
-                button1 = getString(R.string.ok),
-                button2 = getString(R.string.cancel),
-                onClickButton1 = {
-                    val intent = Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS)
-                    intent.data = Uri.parse("package:$packageName")
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    startActivity(intent)
-                    LActivityUtil.tranIn(this@SplashActivity)
-                },
-                onClickButton2 = {
-                    onBackPressed()
-                }
-            )
-            alertDialog.setCancelable(false)
-        }
+//        val isCanWriteSystem = LScreenUtil.checkSystemWritePermission()
+//        if (isCanWriteSystem) {
+//            checkPer()
+//        } else {
+//            val alertDialog = LDialogUtil.showDialog2(
+//                context = this,
+//                title = "Need Permissions",
+//                msg = "This app needs permission to allow modifying system settings",
+//                button1 = getString(R.string.ok),
+//                button2 = getString(R.string.cancel),
+//                onClickButton1 = {
+//                    val intent = Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS)
+//                    intent.data = Uri.parse("package:$packageName")
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+//                    startActivity(intent)
+//                    LActivityUtil.tranIn(this@SplashActivity)
+//                },
+//                onClickButton2 = {
+//                    onBackPressed()
+//                }
+//            )
+//            alertDialog.setCancelable(false)
+//        }
+
+        checkPer()
     }
 
     private fun goToHome() {
@@ -137,74 +127,5 @@ class SplashActivity : BaseFontActivity() {
             LActivityUtil.tranIn(this)
             this.finishAfterTransition()
         }
-    }
-
-    private fun showDialogNotReady() {
-        runOnUiThread {
-            val title = if (LConnectivityUtil.isConnected()) {
-                getString(R.string.app_is_not_ready)
-            } else {
-                getString(R.string.check_ur_connection)
-            }
-            val alertDial = LDialogUtil.showDialog2(
-                context = this,
-                title = getString(R.string.warning),
-                msg = title,
-                button1 = getString(R.string.exit),
-                button2 = getString(R.string.try_again),
-                onClickButton1 = {
-                    onBackPressed()
-                },
-                onClickButton2 = {
-                    checkReady()
-                }
-            )
-            alertDial.setCancelable(false)
-        }
-    }
-
-    private fun checkReady() {
-
-        fun setReady() {
-            runOnUiThread {
-                isCheckReadyDone = true
-                goToHome()
-            }
-        }
-
-        if (LPrefUtil.getCheckAppReady()) {
-            setReady()
-            return
-        }
-        val linkGGDriveCheckReady = getString(R.string.link_gg_drive)
-        LStoreUtil.getTextFromGGDrive(
-            linkGGDrive = linkGGDriveCheckReady,
-            onGGFailure = { _: Call, e: Exception ->
-                e.printStackTrace()
-                showDialogNotReady()
-            },
-            onGGResponse = { listGG: ArrayList<GG> ->
-                logD("getGG listGG: -> " + BaseApplication.gson.toJson(listGG))
-
-                fun isReady(): Boolean {
-                    listGG.forEach { gg ->
-                        if (packageName == gg.pkg) {
-                            return gg.isReady
-                        }
-                    }
-                    return false
-                }
-
-//              val isReady = isReady()
-                // TODO loitpp
-                val isReady = true // return true for demo
-                if (isReady) {
-                    LPrefUtil.setCheckAppReady(value = true)
-                    setReady()
-                } else {
-                    showDialogNotReady()
-                }
-            }
-        )
     }
 }

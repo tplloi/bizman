@@ -1,40 +1,52 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">Demo Base Master</string>
-    <string name="app_name_vn">Demo Base Master</string>
-
-<!--    https://drive.google.com/file/d/1femuL17MUTz7t0yqUkMWB5yCea1W6kqI/view?usp=sharing-->
-    <string name="link_gg_drive" tools:ignore="Typos"><![CDATA[https://drive.google.com/uc?export=download&id=1femuL17MUTz7t0yqUkMWB5yCea1W6kqI]]></string><!--no need to edit this-->
-    <string name="link_cover"><![CDATA[https://live.staticflickr.com/4380/35997985613_8fd2eab2d9_c.jpg]]></string>
-
-    <!--https://apps.admob.com/v2/apps/3990788735/adunits/list-->
-    <string name="str_b">ca-app-pub-3165963943681013/2677707063</string>
-    <string name="str_f">ca-app-pub-3165963943681013/4726636975</string>
-    <string name="str_reward">ca-app-pub-3165963943681013/7959304975</string>
-    <string name="str_app_id">ca-app-pub-3165963943681013~3990788735</string>
-
+<resources>
+    <string name="app_name">Bizman</string>
     <string name="deny">Deny</string>
-    <string name="yes">Yes</string>
-    <string name="setting">Setting</string>
-    <string name="need_permisson">Need permission</string>
-    <string name="need_permisson_to_use_app">Need permission to use app</string>
-    <string name="app_is_not_ready">The app is temporarily unavailable, please try again later.</string>
     <string name="check_ur_connection">Please check your connection</string>
     <string name="warning">Warning</string>
     <string name="press_again_to_exit">Press again to exit</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="rate_app">Rate</string>
     <string name="more_app">More</string>
-    <string name="facebook_fanpage">Facebook fanpage</string>
     <string name="share_app">Share</string>
-    <string name="gallery">Gallery</string>
-    <string name="gallery_18">Gallery 18</string>
     <string name="home">Home</string>
-    <string name="exit">Exit</string>
-    <string name="try_again">Try again</string>
-    <string name="right_drawer">Right Drawer</string>
     <string name="chat_with_dev">Chat with dev</string>
     <string name="donation">Donation</string>
-    <string name="check_out">Check out</string>
-
+    <string name="copyright">© Digital Kauri.</string>
+    <string name="print_display">Display Mode</string>
+    <string name="print_text">Print Text</string>
+    <string name="print_english">Print English</string>
+    <string name="print_char">Print Char</string>
+    <string name="print_picture">Print Picture</string>
+    <string name="print_qrcode">Print QRcode</string>
+    <string name="print_barcode">Print Barcode</string>
+    <string name="print_self_check">Print Self Check</string>
+    <string name="print_init">Print Init</string>
+    <string name="print_query_length">Print Query Length</string>
+    <string name="print_three_lines">Print three Lines</string>
+    <string name="print_black_block">Print Black Block</string>
+    <string name="print_baidu_bill">Print Baidu Bill</string>
+    <string name="print_meituan_bill">Print Meituan Bill</string>
+    <string name="print_elemo_bill">Print Elemo Bill</string>
+    <string name="print_koubei_bill">Print Koubei Bill</string>
+    <string name="print_table">Print Table</string>
+    <string name="print_multi_content_test">Print Multi Content Test</string>
+    <string name="print_comprehensive_test">Print Comprehensive Test</string>
+    <string name="print_sunmi_mode">SunMi Mode</string>
+    <string name="print_Multithread_test">Print Multithread Test</string>
+    <string name="loop_print_test">Loop Print Test</string>
+    <string name="print_driver_error_test">Print Driver Error Test</string>
+    <string name="print_wave_test">Print wave Test</string>
+    <string name="motor_idling">Motor Idling 10000 Steps</string>
+    <string name="print_commond_input">Print Commond Input</string>
+    <string name="printer_run_paper_lines">Printer Run Paper</string>
+    <string name="reset_motor_high_temp_status">Rest Moter Heigh Temp Status</string>
+    <string name="out_of_paper">The printer is out of paper</string>
+    <string name="exists_paper">The printer paper is ready</string>
+    <string name="printer_is_working">The printer is working</string>
+    <string name="printer_high_temp_alarm">Printer high temperature alarm</string>
+    <string name="motor_high_temp_alarm">Motor high temperature alarm</string>
+    <string name="printer_current_task_print_complete">The print task has been printed</string>
+    <string name="printer_exception">Printer Exception</string>
+    <string name="unknown_error">unknown status</string>
+    <string name="switch_mode">Switch Mode</string>
+    <string name="exit">Exit</string>
 </resources>
