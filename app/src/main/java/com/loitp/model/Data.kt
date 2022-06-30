@@ -2,7 +2,7 @@ package com.loitp.model
 
 import android.util.Log
 import androidx.annotation.Keep
-import com.core.utilities.LDateUtil
+import com.loitpcore.core.utilities.LDateUtil
 
 @Keep
 data class Data(

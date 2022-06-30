@@ -4,18 +4,14 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
-import android.net.Uri
 import android.os.Bundle
-import android.provider.Settings
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LActivityUtil
-import com.core.utilities.LDialogUtil
-import com.core.utilities.LScreenUtil
-import com.core.utilities.LUIUtil
 import com.loitp.BuildConfig
 import com.loitp.R
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LActivityUtil
+import com.loitpcore.core.utilities.LUIUtil
 import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.activity_splash.*
 

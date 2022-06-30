@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="app_name">Bizman</string>
     <string name="deny">Deny</string>
     <string name="check_ur_connection">Please check your connection</string>

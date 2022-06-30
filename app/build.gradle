@@ -4,25 +4,24 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 32
-    buildToolsVersion '30.0.3'
+    compileSdk 32
 
     defaultConfig {
         applicationId "com.bizman.bizman_dikauri"
         minSdkVersion 24
         targetSdkVersion 32
-        versionCode 3
-        versionName "1.0.3"
+        versionCode 4
+        versionName "1.0.4"
         multiDexEnabled true
 
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        javaCompileOptions {
-            annotationProcessorOptions {
-                includeCompileClasspath true
-            }
-        }
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                includeCompileClasspath true
+//            }
+//        }
     }
 
     dataBinding {
@@ -42,13 +41,13 @@ android {
         release {
             debuggable false
             minifyEnabled true
-            useProguard true
+//            useProguard true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
         debug {
             minifyEnabled false
-            useProguard false
+//            useProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -71,7 +70,8 @@ repositories {
 }
 
 dependencies {
-    api 'com.github.tplloi:basemaster:4.4.71'
+    api 'com.github.tplloi:basemaster:4.4.73'
 }
+
 //apply plugin: 'com.google.gms.google-services'
 //com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true

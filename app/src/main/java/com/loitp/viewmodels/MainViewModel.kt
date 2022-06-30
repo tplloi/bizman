@@ -1,16 +1,16 @@
 package com.loitp.viewmodels
 
-import com.annotation.LogTag
-import com.core.base.BaseApplication
-import com.core.base.BaseViewModel
 import com.loitp.model.Data
 import com.loitp.service.repository.MainRepository
 import com.loitp.service.service.ApiClient
-import com.service.livedata.ActionData
-import com.service.livedata.ActionLiveData
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseApplication
+import com.loitpcore.core.base.BaseViewModel
+import com.loitpcore.service.livedata.ActionData
+import com.loitpcore.service.livedata.ActionLiveData
 import kotlinx.coroutines.launch
 
-@LogTag("loitppMainViewModel")
+@LogTag("MainViewModel")
 class MainViewModel : BaseViewModel() {
     private val repository: MainRepository = MainRepository(ApiClient.apiService)
     val dataActionLiveData: ActionLiveData<ActionData<Data>> = ActionLiveData()

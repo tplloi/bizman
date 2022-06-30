@@ -8,12 +8,8 @@ import android.view.KeyEvent
 import android.view.WindowManager
 import android.webkit.CookieManager
 import android.webkit.JavascriptInterface
+import android.webkit.WebSettings
 import android.widget.Toast
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseApplication
-import com.core.base.BaseFontActivity
-import com.core.utilities.LSoundUtil
 import com.iposprinter.iposprinterservice.IPosPrinterCallback
 import com.iposprinter.iposprinterservice.IPosPrinterService
 import com.loitp.R
@@ -24,7 +20,12 @@ import com.loitp.print.MemInfo.bitmapRecycle
 import com.loitp.print.PrintContentsExamples.*
 import com.loitp.print.ThreadPoolManager
 import com.loitp.viewmodels.MainViewModel
-import com.views.LWebViewAdblock
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseApplication
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LSoundUtil
+import com.loitpcore.views.LWebViewAdblock
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -265,6 +266,7 @@ class MainActivity : BaseFontActivity() {
 
     private fun setupViews() {
         lWebView.clearCache(true)
+        lWebView.settings.cacheMode = WebSettings.LOAD_NO_CACHE
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
             CookieManager.getInstance().removeAllCookies(null);
             CookieManager.getInstance().flush();

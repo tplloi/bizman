@@ -2,8 +2,8 @@ package com.loitp.service.service
 
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.restapi.DateTypeDeserializer
-import com.restapi.restclient.RestRequestInterceptor
+import com.loitpcore.restapi.DateTypeDeserializer
+import com.loitpcore.restapi.restclient.RestRequestInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

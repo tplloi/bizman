@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.sackcentury:shinebutton:1.0.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2a3f7f6bcbf2d31268b1648f72169e31/jetified-shinebutton-1.0.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2a3f7f6bcbf2d31268b1648f72169e31/jetified-shinebutton-1.0.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2a3f7f6bcbf2d31268b1648f72169e31/jetified-shinebutton-1.0.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/b5f32ac1e0ef2e4df0f08927b0adada9/transformed/jetified-shinebutton-1.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/b5f32ac1e0ef2e4df0f08927b0adada9/transformed/jetified-shinebutton-1.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/b5f32ac1e0ef2e4df0f08927b0adada9/transformed/jetified-shinebutton-1.0.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
