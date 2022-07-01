@@ -9,6 +9,7 @@ import android.view.WindowManager
 import android.webkit.CookieManager
 import android.webkit.JavascriptInterface
 import android.webkit.WebSettings
+import android.webkit.WebView
 import android.widget.Toast
 import com.iposprinter.iposprinterservice.IPosPrinterCallback
 import com.iposprinter.iposprinterservice.IPosPrinterService
@@ -264,13 +265,20 @@ class MainActivity : BaseFontActivity() {
         }, 2000)
     }
 
-    private fun setupViews() {
-        lWebView.clearCache(true)
+    private fun clearCache() {
+        lWebView.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null)
+        lWebView.settings.setAppCacheEnabled(false)
         lWebView.settings.cacheMode = WebSettings.LOAD_NO_CACHE
+        lWebView.settings.setAppCacheMaxSize(1)
+        lWebView.clearCache(true)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
             CookieManager.getInstance().removeAllCookies(null);
             CookieManager.getInstance().flush();
         }
+    }
+
+    private fun setupViews() {
+        clearCache()
         lWebView.callback = object : LWebViewAdblock.Callback {
             override fun onScroll(l: Int, t: Int, oldl: Int, oldt: Int) {
             }
@@ -283,16 +291,30 @@ class MainActivity : BaseFontActivity() {
                 logD("onScrollBottomToTop")
             }
 
+            override fun onPageFinished(view: WebView?, url: String?) {
+                logD("onPageFinished url $url")
+                clearCache()
+            }
+
             override fun onProgressChanged(progress: Int) {
-                logD("onProgressChanged $progress")
+//                logD("onProgressChanged $progress")
+                if (progress >= 100) {
+                    clearCache()
+                }
             }
 
             override fun shouldOverrideUrlLoading(url: String) {
                 logE(">shouldOverrideUrlLoading $url")
+                clearCache()
             }
         }
         onDetectClick()
-        lWebView.loadUrl("https://bizman.dikauri.com/signin")
+//        lWebView.loadUrl("https://bizman.dikauri.com/signin")
+
+        val noCacheHeaders: MutableMap<String, String> = HashMap(2)
+        noCacheHeaders["Pragma"] = "no-cache"
+        noCacheHeaders["Cache-Control"] = "no-cache"
+        lWebView.loadUrl("https://bizman.dikauri.com/signin", noCacheHeaders)
     }
 
     private fun setupViewModels() {

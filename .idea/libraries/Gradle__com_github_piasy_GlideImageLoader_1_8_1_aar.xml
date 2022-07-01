@@ -1,11 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.piasy:GlideImageLoader:1.8.1@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0e34f48c2c6e618b5a9d9b9770a2d6da/jetified-GlideImageLoader-1.8.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c9e35bef14dd28c0dadf05df358275d8/jetified-GlideImageLoader-1.8.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/d899ba85d9a58657c6407ea31b2f1b73/transformed/jetified-GlideImageLoader-1.8.1/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/d899ba85d9a58657c6407ea31b2f1b73/transformed/jetified-GlideImageLoader-1.8.1/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/d899ba85d9a58657c6407ea31b2f1b73/transformed/jetified-GlideImageLoader-1.8.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/d899ba85d9a58657c6407ea31b2f1b73/transformed/jetified-GlideImageLoader-1.8.1/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

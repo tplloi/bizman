@@ -1,11 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.otaliastudios.opengl:egloo:0.6.1@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c6efbad7c190da5ab58c31f8077b3e4e/jetified-egloo-0.6.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a1bae4af784a7108d067691f855a70e3/jetified-egloo-0.6.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/50b9d8d4411aab740620e4e517654741/transformed/jetified-egloo-0.6.1/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/50b9d8d4411aab740620e4e517654741/transformed/jetified-egloo-0.6.1/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/50b9d8d4411aab740620e4e517654741/transformed/jetified-egloo-0.6.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/50b9d8d4411aab740620e4e517654741/transformed/jetified-egloo-0.6.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/50b9d8d4411aab740620e4e517654741/transformed/jetified-egloo-0.6.1/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.otaliastudios.opengl/egloo/0.6.1/cffa08de30ce013563c8af82d751a5028f5b3e07/egloo-0.6.1-javadoc.jar!/" />

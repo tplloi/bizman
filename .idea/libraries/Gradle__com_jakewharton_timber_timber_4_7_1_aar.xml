@@ -1,11 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.jakewharton.timber:timber:4.7.1@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/da6d872597c8fd5bf3c8dc9fca4bffac/jetified-timber-4.7.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/615c97353fc2070b43ab8f053084be3d/jetified-timber-4.7.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5798fa73880abd27c57d2c739306e2b7/transformed/jetified-timber-4.7.1/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/5798fa73880abd27c57d2c739306e2b7/transformed/jetified-timber-4.7.1/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5798fa73880abd27c57d2c739306e2b7/transformed/jetified-timber-4.7.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5798fa73880abd27c57d2c739306e2b7/transformed/jetified-timber-4.7.1/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jakewharton.timber/timber/4.7.1/746f28c804e92fe2b0dd553616c78b1c3693ba16/timber-4.7.1-javadoc.jar!/" />

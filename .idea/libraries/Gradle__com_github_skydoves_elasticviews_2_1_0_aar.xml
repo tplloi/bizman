@@ -2,8 +2,8 @@
   <library name="Gradle: com.github.skydoves:elasticviews:2.1.0@aar">
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/bcacd42109472a11a6e724847e08c921/transformed/jetified-elasticviews-2.1.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/bcacd42109472a11a6e724847e08c921/transformed/jetified-elasticviews-2.1.0/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/bcacd42109472a11a6e724847e08c921/transformed/jetified-elasticviews-2.1.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/bcacd42109472a11a6e724847e08c921/transformed/jetified-elasticviews-2.1.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.skydoves/elasticviews/2.1.0/442d0c6b914f74807e93421f6a0b80b8b8622158/elasticviews-2.1.0-javadoc.jar!/" />
