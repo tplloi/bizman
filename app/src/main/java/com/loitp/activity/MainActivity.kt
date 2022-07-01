@@ -302,7 +302,7 @@ class MainActivity : BaseFontActivity() {
         }
 
 //        clearCache()
-        
+
 //        lWebView.callback = object : LWebViewAdblock.Callback {
 //            override fun onScroll(l: Int, t: Int, oldl: Int, oldt: Int) {
 //            }
