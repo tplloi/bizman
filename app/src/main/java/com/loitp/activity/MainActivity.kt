@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import com.iposprinter.iposprinterservice.IPosPrinterCallback
 import com.iposprinter.iposprinterservice.IPosPrinterService
+import com.loitp.BuildConfig
 import com.loitp.R
 import com.loitp.model.Data
 import com.loitp.print.BytesUtil
@@ -21,6 +22,7 @@ import com.loitp.print.ThreadPoolManager
 import com.loitp.viewmodels.MainViewModel
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LSoundUtil
 import com.loitpcore.views.setSafeOnClickListener
@@ -336,7 +338,9 @@ class MainActivity : BaseFontActivity() {
 //        noCacheHeaders["Cache-Control"] = "no-cache"
 //        lWebView.loadUrl("https://bizman.dikauri.com/signin", noCacheHeaders)
 
-        bt.isVisible = true
+        if (BuildConfig.DEBUG) {
+            bt.isVisible = true
+        }
         bt.setSafeOnClickListener {
             reload()
         }
@@ -405,7 +409,7 @@ class MainActivity : BaseFontActivity() {
     }
 
     private fun print(data: Data) {
-//        logE("print data " + (BaseApplication.gson to data))
+        logE("print data " + (BaseApplication.gson to data))
         if (getPrinterStatus() == PRINTER_NORMAL) {
             ThreadPoolManager.getInstance().executeTask {
                 try {
