@@ -266,19 +266,18 @@ class MainActivity : BaseFontActivity() {
 
     private fun clearCache() {
         lWebView.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null)
-        lWebView.settings.setAppCacheEnabled(false)
         lWebView.settings.cacheMode = WebSettings.LOAD_NO_CACHE
-        lWebView.settings.setAppCacheMaxSize(1)
         lWebView.clearCache(true)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
-            CookieManager.getInstance().removeAllCookies(null);
-            CookieManager.getInstance().flush();
+            CookieManager.getInstance().removeAllCookies(null)
+            CookieManager.getInstance().flush()
         }
     }
 
     private fun setupViews() {
         lWebView.settings.javaScriptEnabled = true
         lWebView.settings.domStorageEnabled = true
+//        lWebView.settings.cacheMode = WebSettings.LOAD_NO_CACHE
         lWebView.settings.cacheMode = WebSettings.LOAD_NO_CACHE
         lWebView.webViewClient = object : WebViewClient() {
 
@@ -293,13 +292,14 @@ class MainActivity : BaseFontActivity() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
                 logD("onPageFinished url $url")
-                lWebView.clearCache(true)
+                clearCache()
             }
         }
 
         lWebView.webChromeClient = object : WebChromeClient() {
             override fun onProgressChanged(view: WebView, newProgress: Int) {
 //                logD("onProgressChanged newProgress $newProgress")
+                progressBar.isVisible = newProgress < 99
             }
         }
 
@@ -339,9 +339,9 @@ class MainActivity : BaseFontActivity() {
 //        lWebView.loadUrl("https://bizman.dikauri.com/signin", noCacheHeaders)
 
         if (BuildConfig.DEBUG) {
-            bt.isVisible = true
+            btReload.isVisible = true
         }
-        bt.setSafeOnClickListener {
+        btReload.setSafeOnClickListener {
             reload()
         }
     }

@@ -11,12 +11,21 @@
         android:layout_height="match_parent" />
 
     <Button
-        android:id="@+id/bt"
+        android:id="@+id/btReload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="Reload webview"
+        android:text="@string/reload_webview"
         android:visibility="gone"
         tools:visibility="visible" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/margin_padding_medium"
+        android:indeterminateTint="@color/colorPrimary" />
 </RelativeLayout>
