@@ -2,8 +2,8 @@
   <library name="Gradle: com.github.florent37:expansionpanel:1.2.4@aar">
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/94af29f6aaf7421fe0170c29f103816a/transformed/jetified-expansionpanel-1.2.4/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/94af29f6aaf7421fe0170c29f103816a/transformed/jetified-expansionpanel-1.2.4/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/94af29f6aaf7421fe0170c29f103816a/transformed/jetified-expansionpanel-1.2.4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/94af29f6aaf7421fe0170c29f103816a/transformed/jetified-expansionpanel-1.2.4/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

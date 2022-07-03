@@ -6,12 +6,12 @@ import android.graphics.BitmapFactory
 import android.os.*
 import android.view.KeyEvent
 import android.view.WindowManager
-import android.webkit.CookieManager
-import android.webkit.JavascriptInterface
-import android.webkit.WebSettings
+import android.webkit.*
 import android.widget.Toast
+import androidx.core.view.isVisible
 import com.iposprinter.iposprinterservice.IPosPrinterCallback
 import com.iposprinter.iposprinterservice.IPosPrinterService
+import com.loitp.BuildConfig
 import com.loitp.R
 import com.loitp.model.Data
 import com.loitp.print.BytesUtil
@@ -25,7 +25,7 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LSoundUtil
-import com.loitpcore.views.LWebViewAdblock
+import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -264,35 +264,92 @@ class MainActivity : BaseFontActivity() {
         }, 2000)
     }
 
-    private fun setupViews() {
-        lWebView.clearCache(true)
+    private fun clearCache() {
+        lWebView.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null)
         lWebView.settings.cacheMode = WebSettings.LOAD_NO_CACHE
+        lWebView.clearCache(true)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
-            CookieManager.getInstance().removeAllCookies(null);
-            CookieManager.getInstance().flush();
+            CookieManager.getInstance().removeAllCookies(null)
+            CookieManager.getInstance().flush()
         }
-        lWebView.callback = object : LWebViewAdblock.Callback {
-            override fun onScroll(l: Int, t: Int, oldl: Int, oldt: Int) {
+    }
+
+    private fun setupViews() {
+        lWebView.settings.javaScriptEnabled = true
+        lWebView.settings.domStorageEnabled = true
+//        lWebView.settings.cacheMode = WebSettings.LOAD_NO_CACHE
+        lWebView.settings.cacheMode = WebSettings.LOAD_NO_CACHE
+        lWebView.webViewClient = object : WebViewClient() {
+
+            override fun shouldOverrideUrlLoading(
+                view: WebView?,
+                request: WebResourceRequest?
+            ): Boolean {
+                logD("shouldOverrideUrlLoading url ${request?.url}")
+                return false
             }
 
-            override fun onScrollTopToBottom() {
-                logD("onScrollTopToBottom")
-            }
-
-            override fun onScrollBottomToTop() {
-                logD("onScrollBottomToTop")
-            }
-
-            override fun onProgressChanged(progress: Int) {
-                logD("onProgressChanged $progress")
-            }
-
-            override fun shouldOverrideUrlLoading(url: String) {
-                logE(">shouldOverrideUrlLoading $url")
+            override fun onPageFinished(view: WebView?, url: String?) {
+                super.onPageFinished(view, url)
+                logD("onPageFinished url $url")
+                clearCache()
             }
         }
+
+        lWebView.webChromeClient = object : WebChromeClient() {
+            override fun onProgressChanged(view: WebView, newProgress: Int) {
+//                logD("onProgressChanged newProgress $newProgress")
+                progressBar.isVisible = newProgress < 99
+            }
+        }
+
+//        clearCache()
+
+//        lWebView.callback = object : LWebViewAdblock.Callback {
+//            override fun onScroll(l: Int, t: Int, oldl: Int, oldt: Int) {
+//            }
+//
+//            override fun onScrollTopToBottom() {
+//                logD("onScrollTopToBottom")
+//            }
+//
+//            override fun onScrollBottomToTop() {
+//                logD("onScrollBottomToTop")
+//            }
+//
+//            override fun onPageFinished(view: WebView?, url: String?) {
+//                logD("onPageFinished url $url")
+//                clearCache()
+//            }
+//
+//            override fun onProgressChanged(progress: Int) {
+//            }
+//
+//            override fun shouldOverrideUrlLoading(url: String) {
+//                logE(">shouldOverrideUrlLoading $url")
+////                clearCache()
+//            }
+//        }
         onDetectClick()
         lWebView.loadUrl("https://bizman.dikauri.com/signin")
+
+//        val noCacheHeaders: MutableMap<String, String> = HashMap(2)
+//        noCacheHeaders["Pragma"] = "no-cache"
+//        noCacheHeaders["Cache-Control"] = "no-cache"
+//        lWebView.loadUrl("https://bizman.dikauri.com/signin", noCacheHeaders)
+
+        if (BuildConfig.DEBUG) {
+            btReload.isVisible = true
+        }
+        btReload.setSafeOnClickListener {
+            reload()
+        }
+    }
+
+    private fun reload() {
+        logE(">>>>>>>reload webview")
+        lWebView.reload()
+//        lWebView.loadUrl("javascript:window.location.reload( true )")
     }
 
     private fun setupViewModels() {
@@ -301,9 +358,9 @@ class MainActivity : BaseFontActivity() {
             vm.dataActionLiveData.observe(
                 owner = this,
                 observer = { action ->
-                    logD("dataActionLiveData action.isDoing ${action.isDoing}")
+//                    logD("dataActionLiveData action.isDoing ${action.isDoing}")
                     action.isDoing?.let { isDoing ->
-                        logD("isDoing $isDoing")
+//                        logD("isDoing $isDoing")
                         val data = action.data
                         if (!isDoing && data != null) {
                             print(data)
@@ -340,11 +397,19 @@ class MainActivity : BaseFontActivity() {
                 LSoundUtil.startMusicFromAsset(fileName = nameSound)
             }
         }, "handlerPlaySound")
+
+//        lWebView.addJavascriptInterface(object : Any() {
+//            @JavascriptInterface
+//            @Throws(java.lang.Exception::class)
+//            fun performClick() {
+//                logE("handleRedraw")
+//                reload()
+//            }
+//        }, "handleRedraw")
     }
 
     private fun print(data: Data) {
         logE("print data " + (BaseApplication.gson to data))
-//        data.getPrintContent()
         if (getPrinterStatus() == PRINTER_NORMAL) {
             ThreadPoolManager.getInstance().executeTask {
                 try {

@@ -23,21 +23,23 @@ data class Data(
     val shop: Shop,
     val status: String,
     val tableName: String,
+    val customerName: String?,
     val total: Double,
     val transactionId: String,
     val updatedAt: String
 ) {
 
     private fun getCreateAt(): String? {
-//        return LDateUtil.convertFormatDate(
-//            strDate = createdAt,
-//            fromFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'",
-//            toFormat = "yyyy-MM-dd HH:mm:ss"
-//        )
+//        val time = LDateUtil.now() ?: ""
+        val time = createdAt
         return LDateUtil.getDate(
-            createdAt,
-            "yyyy-MM-dd HH:mm:ss"
+            time,
+            "dd-MM-yyyy HH:mm:ss"
         )
+    }
+
+    private fun getCustomerNameForPrint(): String {
+        return customerName ?: "-"
     }
 
     companion object {
@@ -46,12 +48,29 @@ data class Data(
     }
 
     private fun getItem(): String {
-        var s = formatLine("SKU", "PRICE")
+//        var s = formatLine("SKU", "PRICE")
+        var s = ""
         items.forEach { item ->
             s += "\n"
             s += formatCenter("------------------------")
             s += "\n"
-            s += formatLine("x${item.quantity} ${item.menuItem.title}", "$${item.subTotal}")
+
+            var name = "x${item.quantity} ${item.menuItem.title}"
+            if (item.note.isEmpty()) {
+                //do nothing
+            } else {
+                name += " (${item.note})"
+            }
+            if (name.length >= maxLengthPerLine) {
+                s += formatLeft(name)
+                s += "\n"
+                s += formatLine("", "$${item.subTotal}")
+            } else {
+                s += formatLine(
+                    name,
+                    "$${item.subTotal}"
+                )
+            }
         }
 //        if (items.isEmpty()) {
 //            //do nothing
@@ -60,6 +79,23 @@ data class Data(
 //            s += formatCenter("------------------------")
 //        }
         return s
+    }
+
+    private fun formatLeft(value: String): String {
+//        val valueLength = value.length
+//        val space = maxLengthPerLine - valueLength
+//        val spaceHalf = space / 2
+//        val formatValue: String
+//        if (spaceHalf > 0) {
+//            var spaceString = ""
+//            for (i in 0..spaceHalf) {
+//                spaceString += spaceChar
+//            }
+//            formatValue = spaceString + value + spaceString
+//        } else {
+//            formatValue = value
+//        }
+        return value
     }
 
     private fun formatCenter(value: String): String {
@@ -101,12 +137,13 @@ data class Data(
     fun getPrintContent(): String {
         val content = """${formatCenter("Dikauri Bizman")}
 ${formatCenter("************************")}
-${formatLine("Order Id:", objectId)}
-${formatLine("Time:", "${getCreateAt()}")}
-${formatLine("Device:", device.name)}
-${formatLine("Table:", tableName)}
-${formatLine("Paid by:", paymentProvider)}
-${formatLine("Transaction Id:", transactionId)}
+${formatLeft("Order Id: $objectId")}
+${formatLeft("Ordered Time: ${getCreateAt()}")}
+${formatLeft("Device: ${device.name}")}
+${formatLeft("Customer: ${getCustomerNameForPrint()}")}
+${formatLeft("Table: $tableName")}
+${formatLeft("Paid by: $paymentProvider")}
+${formatLeft("Transaction Id: $transactionId")}
 ${formatCenter("")}
 ${formatCenter("************************")}
 ${getItem()}

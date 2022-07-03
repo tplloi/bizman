@@ -4,8 +4,6 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/e8e1bba4ea899985337f3f6d16abde27/transformed/jetified-relativepopupwindow-0.4.1/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0d5a66e42b40024a87fae745622721ab/jetified-relativepopupwindow-0.4.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/065ed92dfbb17c23c62d8686eb630fdd/jetified-relativepopupwindow-0.4.1/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/e8e1bba4ea899985337f3f6d16abde27/transformed/jetified-relativepopupwindow-0.4.1/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/e8e1bba4ea899985337f3f6d16abde27/transformed/jetified-relativepopupwindow-0.4.1/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/e8e1bba4ea899985337f3f6d16abde27/transformed/jetified-relativepopupwindow-0.4.1/AndroidManifest.xml" />

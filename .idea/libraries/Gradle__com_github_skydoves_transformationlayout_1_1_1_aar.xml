@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.skydoves:transformationlayout:1.1.1@aar">
     <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/df930c52da6699ce5d6ef479aec623fa/transformed/jetified-transformationlayout-1.1.1/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/df930c52da6699ce5d6ef479aec623fa/transformed/jetified-transformationlayout-1.1.1/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/df930c52da6699ce5d6ef479aec623fa/transformed/jetified-transformationlayout-1.1.1/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/df930c52da6699ce5d6ef479aec623fa/transformed/jetified-transformationlayout-1.1.1/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.skydoves/transformationlayout/1.1.1/2543f3555056ddb7fd5348174e0e38cb846df64/transformationlayout-1.1.1-javadoc.jar!/" />

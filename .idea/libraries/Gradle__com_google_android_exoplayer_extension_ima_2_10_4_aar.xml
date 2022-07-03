@@ -4,11 +4,9 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/78030c1792fa8c2a31d3f59f3209c9c7/transformed/jetified-extension-ima-2.10.4/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/81518882d0d33efd995a0ba1559a1319/jetified-extension-ima-2.10.4/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4bb1a2eb476eea90b8c38093b6936f4c/jetified-extension-ima-2.10.4/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/78030c1792fa8c2a31d3f59f3209c9c7/transformed/jetified-extension-ima-2.10.4/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/78030c1792fa8c2a31d3f59f3209c9c7/transformed/jetified-extension-ima-2.10.4/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/78030c1792fa8c2a31d3f59f3209c9c7/transformed/jetified-extension-ima-2.10.4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/78030c1792fa8c2a31d3f59f3209c9c7/transformed/jetified-extension-ima-2.10.4/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.android.exoplayer/extension-ima/2.10.4/6a92f680b1c9a0f94dd47ca2fab76066758092d8/extension-ima-2.10.4-javadoc.jar!/" />

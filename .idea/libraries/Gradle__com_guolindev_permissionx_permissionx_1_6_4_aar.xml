@@ -2,8 +2,8 @@
   <library name="Gradle: com.guolindev.permissionx:permissionx:1.6.4@aar">
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/e95ba47e9b03ddca7725c5b1423b225d/transformed/jetified-permissionx-1.6.4/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/e95ba47e9b03ddca7725c5b1423b225d/transformed/jetified-permissionx-1.6.4/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/e95ba47e9b03ddca7725c5b1423b225d/transformed/jetified-permissionx-1.6.4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/e95ba47e9b03ddca7725c5b1423b225d/transformed/jetified-permissionx-1.6.4/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.guolindev.permissionx/permissionx/1.6.4/dd83bdea34e6e818a8b7d67a4e1375eb7afcb4c3/permissionx-1.6.4-javadoc.jar!/" />
