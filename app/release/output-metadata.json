@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "artifactType": {
     "type": "APK",
     "kind": "Directory"
@@ -10,9 +10,11 @@
     {
       "type": "SINGLE",
       "filters": [],
-      "versionCode": 3,
-      "versionName": "1.0.3",
-      "outputFile": "Bizman_release_1.0.3_3.apk"
+      "attributes": [],
+      "versionCode": 4,
+      "versionName": "1.0.4",
+      "outputFile": "Bizman_release_1.0.4_4.apk"
     }
-  ]
+  ],
+  "elementType": "File"
 }
