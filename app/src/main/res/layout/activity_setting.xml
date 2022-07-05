@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor"
@@ -9,5 +11,37 @@
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <com.loitpcore.views.switchToggle.appcompatSwitch.LColorSwitchCompat
+        android:id="@+id/swIsDevEnv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin_padding_medium"
+        android:text="@string/is_dev_environment"
+        android:textColor="?attr/themeTextColor"
+        app:bgOffColor="@color/lightGrey"
+        app:bgOnColor="@color/lightGrey"
+        app:toggleOffColor="@color/colorPrimary"
+        app:toggleOnColor="@color/colorPrimary" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_padding_medium"
+        android:text="@string/current_domain"
+        android:textColor="?attr/themeTextColor"
+        android:textSize="@dimen/txt_large"
+        android:textStyle="bold" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvUrl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/margin_padding_medium"
+        android:paddingEnd="@dimen/margin_padding_medium"
+        android:textColor="?attr/themeTextColor"
+        android:textSize="@dimen/txt_medium"
+        tools:text="tvUrl" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

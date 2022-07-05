@@ -13,6 +13,7 @@ import com.iposprinter.iposprinterservice.IPosPrinterCallback
 import com.iposprinter.iposprinterservice.IPosPrinterService
 import com.loitp.BuildConfig
 import com.loitp.R
+import com.loitp.app.Cons
 import com.loitp.model.Data
 import com.loitp.print.BytesUtil
 import com.loitp.print.HandlerUtils
@@ -25,6 +26,7 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
+import com.loitpcore.core.utilities.LSharedPrefsUtil
 import com.loitpcore.core.utilities.LSoundUtil
 import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_main.*
@@ -73,9 +75,6 @@ class MainActivity : BaseFontActivity() {
         private const val DEMO_LOOP_PRINT = 3
         private const val PRINT_DRIVER_ERROR_TEST = 4
         private const val DEFAULT_LOOP_PRINT = 0
-
-        private const val URL_DEV = "https://bizman.dikauri.com/signin"
-        private const val URL_PROD = "https://app.dikauri.com/ "
     }
 
     private var mainViewModel: MainViewModel? = null
@@ -335,7 +334,8 @@ class MainActivity : BaseFontActivity() {
 //            }
 //        }
         onDetectClick()
-        lWebView.loadUrl(URL_DEV)
+        val url = LSharedPrefsUtil.instance.getString(Cons.KEY_URL, Cons.URL_DEV)
+        lWebView.loadUrl(url)
 
 //        val noCacheHeaders: MutableMap<String, String> = HashMap(2)
 //        noCacheHeaders["Pragma"] = "no-cache"
