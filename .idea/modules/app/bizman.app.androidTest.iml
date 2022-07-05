@@ -15,7 +15,7 @@
             <stringArg name="classpath">
               <args>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/b13238ca3a152683b6535eef546583b2/transformed/jetified-androidx-rs.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/10eb31fbeafb2b353b9af1c05670ae76/transformed/jetified-base-4.4.74-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/eb72df603dad47ee96bea79fbe90c83a/transformed/jetified-base-4.4.75-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/843d0d1c2b328dcd3aa3aafcd9fb2e2b/transformed/databinding-runtime-7.2.1-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/f3047306e3e6d1ca1ed9c94483778861/transformed/databinding-adapters-7.2.1-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.databinding/databinding-common/7.2.1/cb53bd625b7a99cf218f46634d07d1886441288/databinding-common-7.2.1.jar</arg>
@@ -291,7 +291,7 @@
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.databinding:databinding-common:7.2.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlin:kotlin-android-extensions-runtime:1.7.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: ./../../../Library/Android/sdk/build-tools/30.0.3/renderscript/lib/androidx-rs.jar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: com.github.tplloi:base:4.4.74@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: com.github.tplloi:base:4.4.75@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.github.bumptech.glide:glide:4.13.2@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.github.bumptech.glide:gifdecoder:4.13.2@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.fragment:fragment:1.4.1@aar" level="project" />

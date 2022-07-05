@@ -8,11 +8,14 @@ import android.view.KeyEvent
 import android.view.WindowManager
 import android.webkit.*
 import android.widget.Toast
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
 import com.iposprinter.iposprinterservice.IPosPrinterCallback
 import com.iposprinter.iposprinterservice.IPosPrinterService
 import com.loitp.BuildConfig
 import com.loitp.R
+import com.loitp.app.Cons
 import com.loitp.model.Data
 import com.loitp.print.BytesUtil
 import com.loitp.print.HandlerUtils
@@ -24,6 +27,8 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LActivityUtil
+import com.loitpcore.core.utilities.LSharedPrefsUtil
 import com.loitpcore.core.utilities.LSoundUtil
 import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_main.*
@@ -331,7 +336,7 @@ class MainActivity : BaseFontActivity() {
 //            }
 //        }
         onDetectClick()
-        lWebView.loadUrl("https://bizman.dikauri.com/signin")
+        loadWeb()
 
 //        val noCacheHeaders: MutableMap<String, String> = HashMap(2)
 //        noCacheHeaders["Pragma"] = "no-cache"
@@ -344,7 +349,48 @@ class MainActivity : BaseFontActivity() {
         btReload.setSafeOnClickListener {
             reload()
         }
+        btChangeEnv.setOnClickListener() {
+            handleBtChangeEnv()
+        }
     }
+
+    private fun loadWeb() {
+        val url = LSharedPrefsUtil.instance.getString(Cons.KEY_URL_THANOS, Cons.URL_DEV)
+        logE(">>>>loadWeb $url")
+        lWebView.loadUrl(url)
+    }
+
+    private var countClickBtChangeEnv = 0
+    private fun handleBtChangeEnv() {
+
+        fun changeEnv() {
+            logD("changeEnv")
+            val intent = Intent(this, SettingActivity::class.java)
+            startForResult.launch(intent)
+            LActivityUtil.tranIn(this)
+        }
+
+        if (countClickBtChangeEnv >= 10) {
+            changeEnv()
+            countClickBtChangeEnv = 0
+            return
+        }
+        countClickBtChangeEnv++
+        logD("changeEnv countClickBtChangeEnv $countClickBtChangeEnv")
+    }
+
+    private val startForResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+            logE("startForResult")
+            if (result.resultCode == SettingActivity.RESULT_CODE) {
+                val isReloadWeb =
+                    result.data?.getBooleanExtra(SettingActivity.KEY_RESULT, false)
+                logE("isReloadWeb $isReloadWeb")
+                if (isReloadWeb == true) {
+                    loadWeb()
+                }
+            }
+        }
 
     private fun reload() {
         logE(">>>>>>>reload webview")

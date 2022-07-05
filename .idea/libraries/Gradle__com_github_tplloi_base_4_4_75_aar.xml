@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.tplloi:base:4.4.75@aar">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/2731a50d36050ec4cc5e9f5c5f3fce91/transformed/jetified-base-4.4.75/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/2731a50d36050ec4cc5e9f5c5f3fce91/transformed/jetified-base-4.4.75/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2731a50d36050ec4cc5e9f5c5f3fce91/transformed/jetified-base-4.4.75/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2731a50d36050ec4cc5e9f5c5f3fce91/transformed/jetified-base-4.4.75/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.tplloi/base/4.4.75/7c24e68761a2ae2a93078af497ea60964b50c8ed/base-4.4.75-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

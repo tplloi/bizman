@@ -6,8 +6,8 @@ import com.loitp.service.service.ApiClient
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.core.base.BaseViewModel
-import com.loitpcore.service.livedata.ActionData
-import com.loitpcore.service.livedata.ActionLiveData
+import com.loitpcore.service.liveData.ActionData
+import com.loitpcore.service.liveData.ActionLiveData
 import kotlinx.coroutines.launch
 
 @LogTag("MainViewModel")

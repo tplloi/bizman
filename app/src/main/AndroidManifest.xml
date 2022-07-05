@@ -29,6 +29,10 @@
             android:name=".activity.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true" />
+        <activity
+            android:name=".activity.SettingActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true" />
     </application>
 
 </manifest>

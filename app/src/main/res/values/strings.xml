@@ -50,4 +50,6 @@
     <string name="switch_mode">Switch Mode</string>
     <string name="exit">Exit</string>
     <string name="reload_webview">Reload webview</string>
+    <string name="is_dev_environment">is Dev Environment</string>
+    <string name="current_domain">CURRENT DOMAIN</string>
 </resources>
