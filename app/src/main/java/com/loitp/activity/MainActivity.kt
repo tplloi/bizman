@@ -72,6 +72,9 @@ class MainActivity : BaseFontActivity() {
         private const val DEMO_LOOP_PRINT = 3
         private const val PRINT_DRIVER_ERROR_TEST = 4
         private const val DEFAULT_LOOP_PRINT = 0
+
+        private const val URL_DEV = "https://bizman.dikauri.com/signin"
+        private const val URL_PROD = "https://app.dikauri.com/ "
     }
 
     private var mainViewModel: MainViewModel? = null
@@ -331,7 +334,7 @@ class MainActivity : BaseFontActivity() {
 //            }
 //        }
         onDetectClick()
-        lWebView.loadUrl("https://bizman.dikauri.com/signin")
+        lWebView.loadUrl(URL_DEV)
 
 //        val noCacheHeaders: MutableMap<String, String> = HashMap(2)
 //        noCacheHeaders["Pragma"] = "no-cache"
@@ -344,6 +347,25 @@ class MainActivity : BaseFontActivity() {
         btReload.setSafeOnClickListener {
             reload()
         }
+        btChangeEnv.setOnClickListener() {
+            handleBtChangeEnv()
+        }
+    }
+
+    private var countClickBtChangeEnv = 0
+    private fun handleBtChangeEnv() {
+
+        fun changeEnv(){
+            logD("changeEnv")
+        }
+
+        if (countClickBtChangeEnv >= 10) {
+            changeEnv()
+            countClickBtChangeEnv = 0
+            return
+        }
+        countClickBtChangeEnv++
+        logD("changeEnv countClickBtChangeEnv $countClickBtChangeEnv")
     }
 
     private fun reload() {
