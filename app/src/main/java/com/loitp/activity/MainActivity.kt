@@ -8,6 +8,8 @@ import android.view.KeyEvent
 import android.view.WindowManager
 import android.webkit.*
 import android.widget.Toast
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
 import com.iposprinter.iposprinterservice.IPosPrinterCallback
 import com.iposprinter.iposprinterservice.IPosPrinterService
@@ -334,8 +336,7 @@ class MainActivity : BaseFontActivity() {
 //            }
 //        }
         onDetectClick()
-        val url = LSharedPrefsUtil.instance.getString(Cons.KEY_URL, Cons.URL_DEV)
-        lWebView.loadUrl(url)
+        loadWeb()
 
 //        val noCacheHeaders: MutableMap<String, String> = HashMap(2)
 //        noCacheHeaders["Pragma"] = "no-cache"
@@ -353,13 +354,19 @@ class MainActivity : BaseFontActivity() {
         }
     }
 
+    private fun loadWeb() {
+        val url = LSharedPrefsUtil.instance.getString(Cons.KEY_URL_THANOS, Cons.URL_DEV)
+        logE(">>>>loadWeb $url")
+        lWebView.loadUrl(url)
+    }
+
     private var countClickBtChangeEnv = 0
     private fun handleBtChangeEnv() {
 
         fun changeEnv() {
             logD("changeEnv")
             val intent = Intent(this, SettingActivity::class.java)
-            startActivity(intent)
+            startForResult.launch(intent)
             LActivityUtil.tranIn(this)
         }
 
@@ -371,6 +378,19 @@ class MainActivity : BaseFontActivity() {
         countClickBtChangeEnv++
         logD("changeEnv countClickBtChangeEnv $countClickBtChangeEnv")
     }
+
+    private val startForResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+            logE("startForResult")
+            if (result.resultCode == SettingActivity.RESULT_CODE) {
+                val isReloadWeb =
+                    result.data?.getBooleanExtra(SettingActivity.KEY_RESULT, false)
+                logE("isReloadWeb $isReloadWeb")
+                if (isReloadWeb == true) {
+                    loadWeb()
+                }
+            }
+        }
 
     private fun reload() {
         logE(">>>>>>>reload webview")

@@ -44,4 +44,16 @@
         android:textSize="@dimen/txt_medium"
         tools:text="tvUrl" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btConfirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="@string/confirm" />
+
 </androidx.appcompat.widget.LinearLayoutCompat>
