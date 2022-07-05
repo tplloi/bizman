@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/drawable/bkg_black.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1421875" />
+        <entry key="app/src/main/res/layout/activity_setting.xml" value="0.17447916666666666" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.25" />
         <entry key="app/src/main/res/layout/frm_home.xml" value="0.2828125" />
         <entry key="app/src/main/res/layout/view_drawer_end.xml" value="0.2828125" />

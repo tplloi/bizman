@@ -24,6 +24,7 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LSoundUtil
 import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_main.*
@@ -355,8 +356,11 @@ class MainActivity : BaseFontActivity() {
     private var countClickBtChangeEnv = 0
     private fun handleBtChangeEnv() {
 
-        fun changeEnv(){
+        fun changeEnv() {
             logD("changeEnv")
+            val intent = Intent(this, SettingActivity::class.java)
+            startActivity(intent)
+            LActivityUtil.tranIn(this)
         }
 
         if (countClickBtChangeEnv >= 10) {
